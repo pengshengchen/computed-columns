@@ -68,13 +68,15 @@
                 <!-- Start edited by pengshengchen -->
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" ng-model="vis.params.divideByTimeRangeColumns">
+                    <input type="checkbox" ng-model="output.enableDivideByTimeRange">
                    Divide by Time Range Columns
                   </label>
                  </div>
                  <div>
-                   <h3>Current timerange minimum : {{min._d}}</h3>
-                   <h3>Current timerange maximum : {{max._d}}</h3>
+                   <input type="text" ng-model="output.min" class="form-control" />
+                   <input type="text" ng-model="output.max" class="form-control" />
+                   <!--<h3>Current timerange minimum : {{min._d}}</h3>
+                       <h3>Current timerange maximum : {{max._d}}</h3> -->
                  </div>
                 <!-- End edited by pengshengchen -->
             </div>
