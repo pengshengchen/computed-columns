@@ -8,7 +8,7 @@ import n2l from 'number-to-letter';
 import numeral from 'numeral';
 
 const module = uiModules.get('kibana/computed-columns', ['kibana']);
-module.controller('ComputedColumnsVisController', ($scope, $element, Private) => {
+module.controller('ComputedColumnsVisController', ($scope, $element, Private, timefilter) => {
 
   const tabifyAggResponse = Private(AggResponseTabifyTabifyProvider);
   const AggConfig = Private(VisAggConfigProvider);
@@ -48,7 +48,7 @@ module.controller('ComputedColumnsVisController', ($scope, $element, Private) =>
       let expressionParams = createExpressionsParams(computedColumn.formula, row);
       let value = parser.evaluate(expressionParams);
       let newCell = new AggConfigResult(column.aggConfig, void 0, value, value);
-      row.push(newCell);
+      let timefilter.getBounds().min
       return row;
     });
   };
