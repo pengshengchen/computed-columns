@@ -2,7 +2,7 @@ import _ from 'lodash';
 import uiModules from 'ui/modules';
 
 const module = uiModules.get('kibana/computed-columns', ['kibana']);
-module.controller('ComputedColumnsParamsVisController', ($scope) => {
+module.controller('ComputedColumnsParamsVisController', ($scope, timefilter) => {
   $scope.totalAggregations = ['sum', 'avg', 'min', 'max', 'count'];
   $scope.$watchMulti(['vis.params.showPartialRows', 'vis.params.showMeticsAtAllLevels'], () => {
     if (!$scope.vis) {
@@ -18,11 +18,14 @@ module.controller('ComputedColumnsParamsVisController', ($scope) => {
   });
 
   $scope.addComputedColumn = (computedColumns) => {
+     timefilter.getBounds().min_d;
     computedColumns.push({
       formula: 'col[0] * col[0]',
       label: 'Value squared',
       format: '0,0',
       enabled: true ,
+      min: timefilter.getBounds().min._d, // edited by pengshengchen
+      max: timefilter.getBounds().max._d, // edited by pengshengchen
       enableDivideByTimeRange: false // edited by pengshengchen
     });
   };
