@@ -48,7 +48,6 @@ module.controller('ComputedColumnsVisController', ($scope, $element, Private, ti
       let expressionParams = createExpressionsParams(computedColumn.formula, row);
       let value = parser.evaluate(expressionParams);
       let newCell = new AggConfigResult(column.aggConfig, void 0, value, value);
-      let timefilter.getBounds().min
       return row;
     });
   };
